@@ -16,6 +16,30 @@ src/
  ├── Domain/
  └── Infrastructure/
 
+✔ Application tiene su propio DI
+✔ Infrastructure tiene su propio DI
+✔ API solo ensambla
+Controller
+   ↓
+Application (Use Case)
+   ↓
+Interface (IMemberRepository)
+   ↓
+Infrastructure (Mongo)
 
-- por que settings.json db se encuentra en API
-- DI en infraestructure? 
+
+Fix: 
+MongoDB.Driver.MongoWriteException: A write operation resulted in an error. WriteError: { Category : "DuplicateKey", Code : 11000, Message : "E11000 duplicate key error collection: lotus-foundation.members index: _id_ dup key: { _id: {} }" }.
+ ---> MongoDB.Driver.MongoBulkWriteException`1[Domain.Members.Member]: A bulk write operation resulted in one or more errors. WriteErrors: [ { Category : "DuplicateKey", Code : 11000, Message : "E11000 duplicate key error collection: lotus-foundation.members index: _id_ dup key: { _id: {} }" } ].
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWriteAsync(IClientSessionHandle session, IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionImpl`1.BulkWriteAsync(IEnumerable`1 requests, BulkWriteOptions options, CancellationToken cancellationToken)
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOneAsync(TDocument document, InsertOneOptions options, Func`3 bulkWriteAsync)
+   --- End of inner exception stack trace ---
+   at MongoDB.Driver.MongoCollectionBase`1.InsertOneAsync(TDocument document, InsertOneOptions options, Func`3 bulkWriteAsync)
+   at Infraestructure.Persistence.Repositories.MongoMemberRepository.Save(Member member) in C:\Users\wilsoncampusano\source\repos\lotus-foundation\lotus-foundation\Infraestructure\Persistence\Repositories\MongoMemberRepository.cs:line 19
+   at Application.Members.CreateMember.CreateMemberHandler.Handle(CreateMemberCommand command) in C:\Users\wilsoncampusano\source\repos\lotus-foundation\lotus-foundation\Application\Members\CreateMember\CreateMemberHandler.cs:line 31
+   at API.Controllers.Members.MembersController.Create(CreateMemberCommand command) in C:\Users\wilsoncampusano\source\repos\lotus-foundation\lotus-foundation\API\Controllers\Members\MembersController.cs:line 19
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
