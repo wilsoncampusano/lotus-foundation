@@ -1,4 +1,6 @@
-﻿namespace Domain.Members
+﻿using Domain.ValueObjects;
+
+namespace Domain.Entities
 {
    public class Member
 {

@@ -1,7 +1,5 @@
-﻿using Application.Members.Commands.CreateMember;
-using Application.Members.Handlers.CreateMember;
+﻿using Application.Commands.CreateMember;
 using Microsoft.AspNetCore.Mvc;
-using System.Reflection.Metadata;
 
 
 namespace API.Controllers.Members

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Members
+namespace Domain.Entities
 {
     public readonly struct MemberId
     {
