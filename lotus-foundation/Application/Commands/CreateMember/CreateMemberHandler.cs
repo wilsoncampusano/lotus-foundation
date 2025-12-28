@@ -1,19 +1,14 @@
-﻿using Application.Members.Commands.CreateMember;
-using Domain.Members;
-using Infraestructure.Persistence.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Interfaces;
+using Domain.Entities;
+using Domain.ValueObjects;
 
-namespace Application.Members.Handlers.CreateMember
+namespace Application.Commands.CreateMember
 {
     public class CreateMemberHandler
     {
-        private readonly MemberRepository _repository;
+        private readonly IMemberRepository _repository;
 
-        public CreateMemberHandler(MemberRepository repository)
+        public CreateMemberHandler(IMemberRepository repository)
         {
             _repository = repository;
         }
@@ -33,7 +28,7 @@ namespace Application.Members.Handlers.CreateMember
                 )
             );
 
-            await _repository.AddAsync(member);
+            await _repository.Save(member);
         }
     }
 

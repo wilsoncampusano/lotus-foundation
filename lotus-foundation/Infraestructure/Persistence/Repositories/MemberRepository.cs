@@ -1,32 +1,17 @@
-﻿using Domain.Members;
-using MongoDB.Driver;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Application.Interfaces;
+using Domain.Entities;
 
 namespace Infraestructure.Persistence.Repositories
 {
-    public interface IMemberRepository
+
+
+    public class MongoMemberRepository : IMemberRepository
     {
-        Task AddAsync(Member member);
-    }
-
-
-    public class MemberRepository : IMemberRepository
-    {
-        private readonly IMongoCollection<Member> _collection;
-
-        public MemberRepository(IMongoDatabase database)
+        public Task Save(Member member)
         {
-            _collection = database.GetCollection<Member>("members");
-        }
-
-        public async Task AddAsync(Member member)
-        {
-            await _collection.InsertOneAsync(member);
+            throw new NotImplementedException();
         }
     }
+
 
 }

@@ -1,0 +1,4 @@
+- Program.cs se encuentra en API
+- Tengo mas de un csproj
+- Hay carpetas controllers, Services, Repositories mezcladas
+- Mongo esta referenciado en los Handlers

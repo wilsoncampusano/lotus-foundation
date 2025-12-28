@@ -1,11 +1,6 @@
-﻿using Domain.Members;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.ValueObjects;
 
-namespace Application.Members.Commands.CreateMember
+namespace Application.Commands.CreateMember
 {
     public record CreateMemberCommand(
       string FirstName,

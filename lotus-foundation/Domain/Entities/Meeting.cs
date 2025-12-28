@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Events
+namespace Domain.Entities
 {
-    internal class Event
+    internal class Meeting
     {
     }
 }

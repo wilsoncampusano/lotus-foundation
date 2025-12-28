@@ -1,29 +1,11 @@
-namespace Domain.Members
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Domain.Entities
 {
-
-    public enum Division
-    {
-        Futuro,
-        JuvenilMasculina,
-        JuvenilFemenina,
-        DamasJovenes,
-        Damas,
-        Caballeros
-    }
-
-    public enum MemberRole
-    {
-        Miembro,
-        Encargado,
-        Responsable
-    }
-
-    public enum MemberStatus
-    {
-        Active,
-        Inactive
-    }
-
 
     public class OrganizationalAssignment
     {
