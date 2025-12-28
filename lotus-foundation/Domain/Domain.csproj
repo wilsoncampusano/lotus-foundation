@@ -10,8 +10,8 @@
     <Folder Include="DomainRules\" />
     <Folder Include="Events\" />
     <Folder Include="Meetings\" />
-    <Folder Include="Members\" />
     <Folder Include="Notifications\" />
+    <Folder Include="ValueObjects\" />
   </ItemGroup>
 
 </Project>

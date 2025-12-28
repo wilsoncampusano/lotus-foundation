@@ -1,6 +1,6 @@
-﻿using Domain.ValueObjects;
+﻿using Domain.Members;
 
-namespace Application.Commands.CreateMember
+namespace Application.Members.CreateMember
 {
     public record CreateMemberCommand(
       string FirstName,

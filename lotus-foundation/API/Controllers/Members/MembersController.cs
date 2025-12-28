@@ -1,4 +1,4 @@
-﻿using Application.Commands.CreateMember;
+﻿using Application.Members.CreateMember;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -9,7 +9,10 @@ namespace API.Controllers.Members
     public class MembersController : ControllerBase
     {
         private CreateMemberHandler _handler;
-
+        public MembersController(CreateMemberHandler handler)
+        {
+            _handler = handler;
+        }
         [HttpPost]
         public async Task<IActionResult> Create(CreateMemberCommand command)
         {

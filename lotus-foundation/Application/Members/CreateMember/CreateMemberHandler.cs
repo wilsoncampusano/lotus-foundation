@@ -1,8 +1,8 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
-using Domain.ValueObjects;
+using Domain.Members;
 
-namespace Application.Commands.CreateMember
+namespace Application.Members.CreateMember
 {
     public class CreateMemberHandler
     {

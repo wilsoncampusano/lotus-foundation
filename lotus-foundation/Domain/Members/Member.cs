@@ -1,6 +1,6 @@
-﻿using Domain.ValueObjects;
+﻿using Domain.Entities;
 
-namespace Domain.Entities
+namespace Domain.Members
 {
    public class Member
 {
