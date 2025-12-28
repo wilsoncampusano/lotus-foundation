@@ -4,9 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Meetings
+namespace Domain.Members
 {
-    internal class Meeting
+    public enum MemberStatus
     {
+        Active,
+        Inactive
     }
 }

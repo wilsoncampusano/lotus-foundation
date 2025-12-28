@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Infraestructure.Persistence.Repositories
+namespace Domain.Members
 {
-    internal interface IMemberRepository
+    public enum MemberRole
     {
+        Miembro,
+        Encargado,
+        Responsable
     }
 }

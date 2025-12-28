@@ -1,4 +1,6 @@
-﻿namespace Domain.Members
+﻿using Domain.Entities;
+
+namespace Domain.Members
 {
    public class Member
 {

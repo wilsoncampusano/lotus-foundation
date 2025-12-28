@@ -7,14 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Infraestructure\Infraestructure.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Commands\CreateMember\" />
     <Folder Include="Events\" />
     <Folder Include="Meetings\" />
-    <Folder Include="Members\" />
     <Folder Include="Notifications\" />
+    <Folder Include="Queries\" />
   </ItemGroup>
 
 </Project>

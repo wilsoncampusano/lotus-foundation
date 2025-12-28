@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DomainRules\" />
+    <Folder Include="Events\" />
+    <Folder Include="Meetings\" />
+    <Folder Include="Notifications\" />
+    <Folder Include="ValueObjects\" />
+  </ItemGroup>
+
 </Project>
