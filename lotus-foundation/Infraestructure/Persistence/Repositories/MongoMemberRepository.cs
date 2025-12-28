@@ -1,5 +1,7 @@
 ﻿using Application.Interfaces;
-using Domain.Entities;
+using Domain.Members;
+using Infraestructure.Persistence.Mongo;
+using MongoDB.Driver;
 
 namespace Infraestructure.Persistence.Repositories
 {
@@ -7,10 +9,14 @@ namespace Infraestructure.Persistence.Repositories
 
     public class MongoMemberRepository : IMemberRepository
     {
-        public Task Save(Member member)
+        private readonly IMongoCollection<Member> _collection;
+
+        public MongoMemberRepository(MongoContext context)
         {
-            throw new NotImplementedException();
+            _collection = context.Database.GetCollection<Member>("members");
         }
+        public async Task Save(Member member)
+            => await _collection.InsertOneAsync(member);
     }
 
 

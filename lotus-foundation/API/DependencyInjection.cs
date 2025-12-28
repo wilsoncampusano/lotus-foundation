@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Members.CreateMember;
 using Infraestructure.Persistence.Mongo;
 using Infraestructure.Persistence.Repositories;
 
@@ -17,6 +18,14 @@ namespace API
 
             services.AddScoped<IMemberRepository, MongoMemberRepository>();
             services.AddScoped<MongoHealthCheck>();
+
+            return services;
+        }
+
+        public static IServiceCollection AddApplication(
+       this IServiceCollection services)
+        {
+            services.AddScoped<CreateMemberHandler>();
 
             return services;
         }

@@ -5,6 +5,16 @@
 | Infrastructure | Application + Domain         |
 | Api            | Application + Infrastructure |
 
+src/
+ ├── Api/                 ← HTTP REST
+ │    └── Program.cs
+ ├── Worker/              ← Background jobs
+ │    └── Program.cs
+ ├── Grpc/                ← gRPC
+ │    └── Program.cs
+ ├── Application/
+ ├── Domain/
+ └── Infrastructure/
 
 
 - por que settings.json db se encuentra en API
