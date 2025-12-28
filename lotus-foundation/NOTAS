@@ -1,4 +1,11 @@
-- Program.cs se encuentra en API
-- Tengo mas de un csproj
-- Hay carpetas controllers, Services, Repositories mezcladas
-- Mongo esta referenciado en los Handlers
+| Proyecto       | Puede referenciar            |
+| -------------- | ---------------------------- |
+| Domain         | NADA                         |
+| Application    | Domain                       |
+| Infrastructure | Application + Domain         |
+| Api            | Application + Infrastructure |
+
+
+
+- por que settings.json db se encuentra en API
+- DI en infraestructure? 
