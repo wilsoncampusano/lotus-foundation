@@ -11,6 +11,8 @@ namespace API
             this IServiceCollection services,
             IConfiguration configuration)
         {
+            MongoConfiguration.Configure();
+            MongoMappings.Register();
             services.Configure<MongoSettings>(
                 configuration.GetSection("Mongo"));
 

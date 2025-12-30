@@ -20,7 +20,7 @@ namespace Application.Members.CreateMember
                 new FullName(command.FirstName, command.LastName),
                 command.Division,
                 command.Role,
-                new OrganizationalAssignment(
+                new OrganizationUnit(
                     command.Territorio,
                     command.SubDireccion,
                     command.Zona,
