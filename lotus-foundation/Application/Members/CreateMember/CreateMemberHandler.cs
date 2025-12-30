@@ -13,10 +13,15 @@ namespace Application.Members.CreateMember
             _repository = repository;
         }
 
-        public async Task Handle(CreateMemberCommand command)
+        public async Task<MemberId> Handle(CreateMemberCommand command, CancellationToken ct)
         {
+            var memberId = MemberId.New();
+
+            if(await _repository.ExistsAsync(memberId, ct))
+                throw new InvalidOperationException("Member with the same ID already exists.");
+            
             var member = new Member(
-                MemberId.New(),
+                memberId,
                 new FullName(command.FirstName, command.LastName),
                 command.Division,
                 command.Role,
@@ -28,7 +33,8 @@ namespace Application.Members.CreateMember
                 )
             );
 
-            await _repository.Save(member);
+            await _repository.AddAsync(member, ct);
+            return memberId;
         }
     }
 
