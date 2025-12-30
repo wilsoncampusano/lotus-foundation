@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 namespace Domain.Entities
 {
 
-    public class OrganizationalAssignment
+    public class OrganizationUnit
     {
         public string? Zona { get; private set; }
         public string? Provincia { get; private set; }
         public string Territorio { get; private set; }
         public string SubDireccion { get; private set; }
 
-        public OrganizationalAssignment(
+        public OrganizationUnit(
             string territorio,
             string subDireccion,
             string? zona = null,
