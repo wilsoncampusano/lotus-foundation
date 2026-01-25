@@ -14,9 +14,9 @@ namespace API.Controllers.Members
             _handler = handler;
         }
         [HttpPost]
-        public async Task<IActionResult> Create(CreateMemberCommand command)
+        public async Task<IActionResult> Create(CreateMemberCommand command, CancellationToken ct)
         {
-            await _handler.Handle(command);
+            await _handler.Handle(command, ct);
             return Ok();
         }
 
