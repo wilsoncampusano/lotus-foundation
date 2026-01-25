@@ -22,7 +22,8 @@ namespace Infraestructure.Persistence.Mongo.Serializers
                 Roles = (int)value.Role,
                 Subdireccion = value.Organization.SubDireccion,
                 Territorio = value.Organization.Territorio,
-                Zona = value.Organization.Zona
+                Zona = value.Organization.Zona,
+                Provincia = value.Organization.Provincia
             };
 
             BsonSerializer.Serialize(context.Writer, surrogate);
