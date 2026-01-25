@@ -1,8 +1,10 @@
-﻿using Domain.Entities;
+﻿using Domain.Common;
+using Domain.Entities;
+using Domain.Members.Events;
 
 namespace Domain.Members
 {
-    public class Member
+    public class Member : AggregateRoot
     {
         public MemberId Id { get; private set; }
         public FullName Name { get; private set; }
@@ -45,6 +47,25 @@ namespace Domain.Members
         {
             Role = role;
 
+        }
+
+       public static Member Create(
+            MemberId id,
+            FullName name,
+            Division division,
+            MemberRole role,
+            OrganizationUnit organization)
+        {
+            var member =  new Member(
+                id,
+                name,
+                division,
+                role,
+                organization
+            );
+            member.AddDomainEvent(new MemberCreatedDomainEvent(member.Id));
+
+            return member;
         }
     }
 

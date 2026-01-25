@@ -1,4 +1,5 @@
-﻿using Application.Interfaces;
+﻿using Application.Common;
+using Application.Interfaces;
 using Domain.Entities;
 using Domain.Members;
 
@@ -7,6 +8,7 @@ namespace Application.Members.CreateMember
     public class CreateMemberHandler
     {
         private readonly IMemberRepository _repository;
+        private readonly IDomainEventDispatcher _domainEventDispatcher;
 
         public CreateMemberHandler(IMemberRepository repository)
         {
@@ -20,7 +22,7 @@ namespace Application.Members.CreateMember
             if(await _repository.ExistsAsync(memberId, ct))
                 throw new InvalidOperationException("Member with the same ID already exists.");
             
-            var member = new Member(
+            var member = Member.Create(
                 memberId,
                 new FullName(command.FirstName, command.LastName),
                 command.Division,
@@ -34,6 +36,10 @@ namespace Application.Members.CreateMember
             );
 
             await _repository.AddAsync(member, ct);
+
+            await _domainEventDispatcher.DispatchAsync(member.DomainEvents, ct);
+
+            member.ClearDomainEvents();
             return memberId;
         }
     }
