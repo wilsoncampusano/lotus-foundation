@@ -10,9 +10,12 @@ namespace Application.Members.CreateMember
         private readonly IMemberRepository _repository;
         private readonly IDomainEventDispatcher _domainEventDispatcher;
 
-        public CreateMemberHandler(IMemberRepository repository)
+        public CreateMemberHandler(
+            IMemberRepository repository,
+            IDomainEventDispatcher domainEventDispatcher)
         {
             _repository = repository;
+            _domainEventDispatcher = domainEventDispatcher;
         }
 
         public async Task<MemberId> Handle(CreateMemberCommand command, CancellationToken ct)
