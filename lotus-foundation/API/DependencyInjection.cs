@@ -1,5 +1,7 @@
-﻿using Application.Interfaces;
+﻿using Application.Common;
+using Application.Interfaces;
 using Application.Members.CreateMember;
+using Infraestructure.Outbox;
 using Infraestructure.Persistence.Mongo;
 using Infraestructure.Persistence.Repositories;
 
@@ -19,6 +21,8 @@ namespace API
             services.AddSingleton<MongoContext>();
 
             services.AddScoped<IMemberRepository, MongoMemberRepository>();
+            services.AddScoped<IDomainEventDispatcher>(sp =>
+                new MongoOutboxDispatcher(sp.GetRequiredService<MongoContext>().Database));
             services.AddScoped<MongoHealthCheck>();
 
             return services;
