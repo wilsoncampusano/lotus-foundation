@@ -7,15 +7,15 @@ namespace Infraestructure.Outbox
 {
     public sealed class MongoOutboxDispatcher : IDomainEventDispatcher
     {
-        public readonly IMongoCollection<OutboxMesage> _collection;
+        public readonly IMongoCollection<OutboxMessage> _collection;
 
         public MongoOutboxDispatcher(IMongoDatabase database)
         {
-            _collection = database.GetCollection<OutboxMesage>("outbox");
+            _collection = database.GetCollection<OutboxMessage>("outbox");
         }
         public async Task DispatchAsync(IEnumerable<IDomainEvent> domainEvents, CancellationToken ct) 
         {
-            var messages = domainEvents.Select(de => new OutboxMesage
+            var messages = domainEvents.Select(de => new OutboxMessage
             {
                 Id = Guid.NewGuid(),
                 Type = de.GetType().Name,

@@ -4,10 +4,10 @@
     private readonly IEventDispatcher _dispatcher;
 
     public OutboxProcessor(
-        IMongoDatabase database,
+        MongoContext context,
         IEventDispatcher dispatcher)
     {
-        _collection = database
+        _collection = context.Database
             .GetCollection<OutboxMessage>("outbox");
 
         _dispatcher = dispatcher;

@@ -6,6 +6,7 @@ public static class DependencyInjection
         services.AddHostedService<OutboxPollingService>();
 
         services.AddScoped<IEventDispatcher, EventDispatcher>();
+        services.AddScoped<OutboxProcessor>();
 
         services.AddScoped<
             IDomainEventHandler<MemberCreatedDomainEvent>,

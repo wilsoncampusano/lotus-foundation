@@ -1,6 +1,6 @@
-﻿namespace Infraestructure.Outbox
+namespace Infraestructure.Outbox
 {
-    public sealed class OutboxMesage
+    public sealed class OutboxMessage
     {
         public Guid Id { get; set; }
 

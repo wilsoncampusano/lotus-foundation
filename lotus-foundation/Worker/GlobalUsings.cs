@@ -1,0 +1,10 @@
+global using Application;
+global using Application.Events;
+global using Infraestructure;
+global using Domain.Members.Events;
+global using Infraestructure.Outbox;
+global using Infraestructure.Persistence.Mongo;
+global using Microsoft.Extensions.DependencyInjection;
+global using Microsoft.Extensions.Hosting;
+global using Microsoft.Extensions.Logging;
+global using MongoDB.Driver;

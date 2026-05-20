@@ -1,4 +1,5 @@
-using API;
+using Application;
+using Infraestructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
